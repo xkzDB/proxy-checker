@@ -35,11 +35,11 @@ struct Cli {
     #[arg(short = 'i', long = "input", required = true)]
     input: PathBuf,
 
-    /// Output file for alive proxies (default: alive.txt).
+    /// Output file for alive proxies.
     #[arg(short = 'o', long = "output", default_value = "alive.txt")]
     output: PathBuf,
 
-    /// Number of concurrent threads/workers (default: 30, max: 200).
+    /// Number of concurrent threads/workers (max: 200).
     #[arg(short = 't', long = "threads", default_value_t = 30, value_parser = validate_threads)]
     threads: usize,
 
