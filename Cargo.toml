@@ -1,0 +1,23 @@
+[package]
+name = "proxy-checker"
+version = "0.1.0"
+edition = "2021"
+description = "A fast, reliable, multi-threaded proxy checker supporting HTTP, SOCKS4, SOCKS4a, and SOCKS5."
+
+[[bin]]
+name = "proxy-checker"
+path = "src/main.rs"
+
+[dependencies]
+tokio = { version = "1", features = ["full"] }
+clap = { version = "4", features = ["derive"] }
+reqwest = { version = "0.12", features = ["socks", "rustls-tls"], default-features = false }
+indicatif = { version = "0.17", features = ["tokio"] }
+colored = "2"
+futures = "0.3"
+anyhow = "1"
+
+[profile.release]
+opt-level = 3
+lto = true
+codegen-units = 1
